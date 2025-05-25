@@ -1,0 +1,347 @@
+/* styles.css - Full SkyPeek  Styling */
+
+/* ----- GLOBAL ----- */
+.root-stack-pane {
+    -fx-background-color: #21252b; /* Slightly darker base for better contrast */
+    -fx-font-family: "Segoe UI", Arial, sans-serif;
+}
+
+.main-border-pane {
+    -fx-background-color: transparent; /* Allows StackPane background (GIF) to be visible */
+}
+
+/* Default Label style - can be overridden by more specific selectors */
+.label {
+    -fx-text-fill: #c8cdd3; /* Default light grey for text */
+}
+
+/* ----- TOP AREA: App Title & Search Bar ----- */
+.top-area { /* VBox for the top section */
+    -fx-alignment: center;
+    -fx-padding: 18px 25px 12px 25px;
+}
+
+.app-title { /* Label: SkyPeek application title */
+    -fx-font-size: 26px;
+    -fx-font-weight: 600; /* Semi-bold */
+    -fx-text-fill: #e1e8f0;
+    -fx-padding-bottom: 15px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.4), 4, 0, 0, 1);
+}
+
+.search-bar { /* HBox containing search input and button */
+    -fx-alignment: center;
+    -fx-max-width: 430px;
+    -fx-spacing: 10px;
+}
+
+.city-input { /* TextField for city input */
+    -fx-font-size: 14px;
+    -fx-background-color: rgba(255, 255, 255, 0.1);
+    -fx-text-fill: #d5dde5;
+    -fx-prompt-text-fill: #9badc1;
+    -fx-background-radius: 20px;
+    -fx-border-radius: 20px;
+    -fx-border-color: transparent;
+    -fx-padding: 9px 15px;
+    -fx-pref-height: 40px;
+    -fx-pref-width: 280px;
+}
+.city-input:focused {
+    -fx-border-color: #5599c7;
+    -fx-background-color: rgba(255, 255, 255, 0.15);
+    -fx-effect: dropshadow(gaussian, rgba(85, 153, 199, 0.35), 7, 0.25, 0, 0);
+}
+
+.search-button {
+    -fx-background-color: #5599c7;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+    -fx-background-radius: 20px;
+    -fx-padding: 0 20px;
+    -fx-pref-height: 40px;
+    -fx-cursor: hand;
+}
+.search-button:hover {
+    -fx-background-color: #4a87b3; /* Darker blue on hover */
+}
+
+/* ----- LEFT PANEL: Today's Weather ----- */
+.today-panel { /* VBox for today's weather details */
+    -fx-alignment: top-left;
+    -fx-padding: 22px 28px;
+    -fx-pref-width: 360px;
+    -fx-min-width: 330px;
+    -fx-background-color: rgba(35, 39, 49, 0.88);
+    -fx-background-radius: 20px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 16, 0.0, 0, 4);
+    -fx-spacing: 6px;
+}
+
+.today-city-name { /* Label for current city name */
+    -fx-font-family: "Segoe UI Semibold", "Arial Black", sans-serif;
+    -fx-font-size: 28px;
+    -fx-text-fill: white;
+    -fx-padding-bottom: 2px;
+}
+
+.today-date { /* Label for today's full date */
+    -fx-font-family: "Segoe UI Light", Arial, sans-serif;
+    -fx-font-size: 14px;
+    -fx-text-fill: #aeb9c5; /* Slightly desaturated for less emphasis */
+    -fx-padding-bottom: 12px;
+}
+
+.today-icon { /* ImageView for today's weather icon */
+    -fx-padding: 5px 0 8px 0;
+}
+
+.today-temp { /* Label for today's temperature */
+    -fx-font-family: "Segoe UI Light", "Arial Light", sans-serif;
+    -fx-font-size: 72px;
+    -fx-font-weight: 200;
+    -fx-text-fill: white;
+    -fx-padding-bottom: 1px;
+}
+
+.today-desc { /* Label for today's weather description */
+    -fx-font-family: "Segoe UI Italic", "Arial Italic", sans-serif;
+    -fx-font-size: 17px;
+    -fx-text-fill: #d5dde5;
+    -fx-font-style: italic;
+    -fx-padding-bottom: 7px;
+}
+
+.today-minmax { /* Label for today's min/max temperature */
+    -fx-font-family: "Segoe UI", Arial, sans-serif;
+    -fx-font-size: 13px;
+    -fx-text-fill: #aeb9c5;
+    -fx-padding-bottom: 12px;
+}
+
+.today-details-grid { /* GridPane for detailed weather info (humidity, wind, etc.) */
+    -fx-hgap: 18px;
+    -fx-vgap: 7px;
+    -fx-padding: 10px 0 0 0;
+}
+
+.detail-title { /* Labels like "Condition:", "Humidity:" in the grid */
+    -fx-font-family: "Segoe UI Semibold", Arial, sans-serif;
+    -fx-font-size: 12px;
+    -fx-text-fill: #8f9aaa; /* More desaturated title color */
+    -fx-font-weight: 600;
+    -fx-alignment: center-left;
+}
+
+.detail-value { /* Labels for actual values like "Clouds", "46%" in the grid */
+    -fx-font-family: "Segoe UI", Arial, sans-serif;
+    -fx-font-size: 13px; /* Slightly smaller values */
+    -fx-text-fill: #d5dde5;
+    -fx-alignment: center-left;
+}
+
+/* ----- CENTER AREA: Other Days' Forecast ----- */
+.center-forecast-area { /* VBox wrapper for the ScrollPane of other days' forecast */
+    -fx-alignment: center;
+    -fx-padding: 15px 20px; /* Padding around ScrollPane */
+}
+
+.other-days-scroll { /* ScrollPane for other days' forecast cards */
+    -fx-background-color: transparent;
+    -fx-fit-to-width: true;
+    -fx-padding: 0;
+}
+.other-days-scroll > .viewport { /* Ensure viewport is also transparent */
+    -fx-background-color: transparent;
+}
+
+.other-days-flow { /* FlowPane containing individual day forecast cards */
+    -fx-alignment: center;
+    -fx-hgap: 12px;
+    -fx-vgap: 12px;
+    -fx-padding: 12px; /* Inner padding for cards, slightly reduced */
+}
+
+.small-forecast-card { /* VBox for each day card in the FlowPane */
+    -fx-padding: 10px 8px; /* Inner padding of card */
+    -fx-background-color: rgba(45, 52, 68, 0.9);
+    -fx-background-radius: 10px; /* Softer corners */
+    -fx-min-width: 85px;
+    -fx-pref-width: 90px;
+    -fx-max-width: 95px;
+    -fx-pref-height: 110px; /* Slightly reduced height */
+    -fx-alignment: center;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 7, 0.05, 0, 1.5);
+}
+
+.small-card-day-name { /* Label for Day Name (Mon, Tue) in small cards */
+    -fx-font-family: "Segoe UI Semibold", Arial, sans-serif;
+    -fx-font-size: 13px;
+    -fx-text-fill: #b0b8c5;
+    -fx-font-weight: 600;
+    -fx-padding-bottom: 3px;
+}
+.small-forecast-card > .image-view { /* Icon within small forecast card */
+    -fx-padding-bottom: 3px;
+    /* Size (fitHeight/fitWidth) is set in Java code */
+}
+.small-card-temperature { /* Label for Temperature in small cards */
+    -fx-font-family: "Segoe UI Bold", Arial, sans-serif;
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+}
+
+/* ----- BOTTOM AREA: Error Message & Fixed Cities ----- */
+
+.bottom-area-container {
+    -fx-padding: 0 0 0 0;
+}
+.bottom-right-elements { /* VBox containing error label and fixed cities HBox on the right */
+    -fx-alignment: bottom-right; /* Align its content to bottom-right */
+}
+
+.error-message { /* Label for displaying errors (fx:id="errorLabel") */
+    -fx-font-family: "Segoe UI Semibold", Arial, sans-serif;
+    -fx-text-fill: white;
+    -fx-font-size: 13px;
+    -fx-padding: 10px 15px;
+    -fx-background-color: rgba(200, 50, 50, 0.9); /* Slightly adjusted error red */
+    -fx-background-radius: 8px;
+    -fx-alignment: center;
+    -fx-max-width: 500px;
+    /* visibility and managed properties are controlled from Java */
+}
+
+.fixed-cities-bar { /* HBox containing fixed city cards (fx:id="fixedCitiesHBox") */
+    -fx-alignment: center-right; /* Align cards to the right within HBox */
+    -fx-spacing: 12px;
+}
+
+.fixed-city-card { /* VBox for each fixed city card */
+    -fx-padding: 8px;
+    -fx-background-color: rgba(40, 45, 55, 0.82); /* Consistent with today panel */
+    -fx-background-radius: 10px;
+    -fx-min-width: 88px;
+    -fx-pref-width: 92px;
+    -fx-pref-height: 75px; /* Adjusted height */
+    -fx-alignment: center;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.15), 6, 0, 0, 1);
+}
+
+.fixed-city-name { /* Label for fixed city name */
+    -fx-font-family: "Segoe UI Semibold", Arial, sans-serif;
+    -fx-font-size: 11px;
+    -fx-text-fill: #dde4ea;
+    -fx-font-weight: 600;
+    -fx-padding-bottom: 1px;
+}
+/* .fixed-city-card > .image-view - Size is set in Java code */
+.fixed-city-temp { /* Label for fixed city temperature */
+    -fx-font-family: "Segoe UI Semibold", Arial, sans-serif;
+    -fx-font-size: 15px;
+    -fx-text-fill: white;
+    -fx-font-weight: 600;
+}
+
+/* ----- LOGIN & REGISTER PANEL STYLES ----- */
+.login-register-panel {
+    -fx-background-color: #2c3e50; /* Dark background consistent with app theme */
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.4), 20, 0, 0, 5);
+}
+
+.login-register-panel .label { /* All labels inside login/register panels */
+    -fx-text-fill: #bdc3c7; /* Light grey text */
+}
+
+.title-label { /* Titles "User Login", "User Registration" */
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #ecf0f1; /* Brighter white */
+    -fx-padding-bottom: 15px;
+}
+
+.form-label { /* Labels like "Username:", "Password:" */
+    -fx-font-size: 14px;
+    -fx-text-fill: #aeb9c5; /* Slightly paler */
+}
+
+.form-input { /* TextField, PasswordField in forms */
+    -fx-font-size: 15px;
+    -fx-background-color: rgba(255, 255, 255, 0.08);
+    -fx-text-fill: #dde4ea;
+    -fx-prompt-text-fill: #95a5a6;
+    -fx-background-radius: 8px; /* Less curve */
+    -fx-border-radius: 8px;
+    -fx-border-color: rgba(255,255,255,0.2);
+    -fx-padding: 8px 12px;
+    -fx-pref-height: 40px;
+}
+.form-input:focused {
+    -fx-border-color: #5dade2;
+    -fx-background-color: rgba(255, 255, 255, 0.12);
+}
+
+.action-button { /* Login, Register buttons */
+    -fx-background-color: #5dade2;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-font-size: 16px;
+    -fx-background-radius: 8px;
+    -fx-padding: 10px 0; /* Vertical padding, horizontal will expand with maxWidth */
+    -fx-pref-height: 42px;
+    -fx-cursor: hand;
+}
+.action-button:hover {
+    -fx-background-color: #4ba8d7;
+}
+
+.message-label { /* For error/success messages in forms */
+    -fx-font-size: 13px;
+    -fx-alignment: center;
+    -fx-padding-top: 5px;
+    /* Text color (-fx-text-fill) is set from Java */
+}
+
+.info-label { /* Informational labels like "Don't have an account?" */
+    -fx-font-size: 13px;
+    -fx-text-fill: #aeb9c5;
+}
+
+.login-register-panel .hyperlink { /* Hyperlinks within login/register panels */
+    -fx-font-size: 13px;
+    -fx-text-fill: #5dade2;
+    -fx-border-color: transparent; /* Remove underline by default */
+}
+.login-register-panel .hyperlink:hover {
+    -fx-underline: true; /* Underline on hover */
+}
+
+/* ----- WEATHER VIEW SPECIFIC STYLES ----- */
+.info-hyperlink { /* Hyperlink for "Project Info & Resources" */
+    -fx-font-size: 12px;
+    -fx-text-fill: #aeb9c5; /* Pale color */
+    -fx-border-color: transparent;
+    -fx-padding: 5px; /* Add some padding around the link */
+}
+.info-hyperlink:hover {
+    -fx-underline: true;
+    -fx-text-fill: #bdc3c7; /* Brighter color on hover */
+}
+
+.unit-toggle-button { /* ToggleButton for °C / °F */
+    -fx-font-size: 11px;
+    -fx-background-color: rgba(255, 255, 255, 0.1);
+    -fx-text-fill: #c8cdd3;
+    -fx-background-radius: 5px;
+    -fx-padding: 5px 10px;
+    -fx-cursor: hand;
+}
+.unit-toggle-button:hover {
+    -fx-background-color: rgba(255, 255, 255, 0.2);
+}
+.unit-toggle-button:selected {
+    -fx-background-color: #5599c7; /* Different color when Fahrenheit is selected */
+    -fx-text-fill: white;
+}

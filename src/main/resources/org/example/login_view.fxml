@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+
+
+<VBox alignment="CENTER" spacing="20.0" styleClass="login-register-panel" prefWidth="400" prefHeight="450"
+      xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="org.example.LoginController"> <!-- Controller class -->
+    <padding>
+        <Insets top="40.0" right="50.0" bottom="40.0" left="50.0"/>
+    </padding>
+
+    <Label text="User Login" styleClass="title-label"/>
+
+    <VBox spacing="10.0" alignment="CENTER_LEFT">
+        <Label text="Username:" styleClass="form-label"/>
+        <TextField fx:id="usernameField" promptText="Enter your username" styleClass="form-input"/>
+    </VBox>
+
+    <VBox spacing="10.0" alignment="CENTER_LEFT">
+        <Label text="Password:" styleClass="form-label"/>
+        <PasswordField fx:id="passwordField" promptText="Enter your password" styleClass="form-input"/>
+    </VBox>
+
+    <Button fx:id="loginButton" text="Login" onAction="#handleLoginAction" styleClass="action-button" maxWidth="Infinity"/>
+
+    <Label fx:id="messageLabel" styleClass="message-label" wrapText="true"/>
+
+    <HBox alignment="CENTER" spacing="5.0">
+        <Label text="Don't have an account?" styleClass="info-label"/>
+        <Hyperlink fx:id="registerLink" text="Register here" onAction="#handleRegisterLinkAction"/>
+    </HBox>
+</VBox>
